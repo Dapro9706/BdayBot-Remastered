@@ -58,6 +58,7 @@ class BirthdayModule (commands.Cog):
                     if " ".join (j.split (' ')[:-1]) == now:
                         name = j.split (' ')[-1]
                         channel = await self.bot.fetch_channel (self.json['account'][i]['channel'])
+                        await channel.send ('@bday')
                         await birthday_embed \
                             (channel, name, choice (self.wishes['wishes']), footer=self.wishes['dates'][now])
 
