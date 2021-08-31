@@ -37,7 +37,8 @@ class BirthdayModule (commands.Cog):
 
     @tasks.loop (minutes=1)
     async def birthday_loop(self):
-        print ('loop')
+        if DEBUG:
+            print ('loop')
         now = datetime.now ().strftime ('%j')
         if now != self.json['lastCheck']:
             if not DEBUG:
