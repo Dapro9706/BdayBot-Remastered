@@ -1,7 +1,7 @@
 import json
 
 from discord.ext import commands, tasks
-from .utils import embed, birthday_embed
+from .utils import embed, birthday_embed, Colour
 from datetime import datetime
 from .globals import *
 from random import choice
@@ -32,6 +32,7 @@ class BirthdayModule (commands.Cog):
     async def setup(self, ctx: commands.Context, msg_link: str):
         self.json['account'][ctx.guild.id] = {'data': msg_link, 'channel': ctx.channel.id}
         await ctx.channel.purge (limit=1)
+        await ctx.guild.create_role (name="bday", color=Colour (0xFFFF00))
         await embed (ctx, 'Data saved')
         save (self.json)
 
