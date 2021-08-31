@@ -19,7 +19,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
-        json['lastCheck'] = os.environ['lastCheck']
+        self.json['lastCheck'] = os.environ['lastCheck']
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
