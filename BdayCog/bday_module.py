@@ -1,5 +1,4 @@
 import json
-import os
 from discord.ext import commands, tasks
 from .utils import embed, birthday_embed, Colour
 from datetime import datetime
@@ -19,7 +18,6 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
-        self.json['lastCheck'] = os.environ['lastCheck']
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
@@ -51,7 +49,6 @@ class BirthdayModule (commands.Cog):
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
-                os.environ['lastCheck'] = now
                 save (self.json)
             now = datetime.now ().strftime ('%b %d')
 
