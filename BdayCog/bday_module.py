@@ -1,5 +1,5 @@
 import json
-
+import os
 from discord.ext import commands, tasks
 from .utils import embed, birthday_embed, Colour
 from datetime import datetime
@@ -8,8 +8,9 @@ from random import choice
 
 
 def save(j):
-    with open (SAVE, 'w') as f:
-        json.dump (j, f, indent=4 if DEBUG else None)
+    pass
+#     with open (SAVE, 'w') as f:
+#         json.dump (j, f, indent=4 if DEBUG else None)
 
 
 class BirthdayModule (commands.Cog):
@@ -18,6 +19,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
+        json['lastCheck'] = os.environ['lastCheck']
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
@@ -28,13 +30,18 @@ class BirthdayModule (commands.Cog):
     async def ping(self, ctx):
         await ctx.send ('TEST')
 
+#     @commands.command (name="setup")
+#     async def setup(self, ctx: commands.Context, msg_link: str):
+#         self.json['account'][ctx.guild.id] = {'data': msg_link, 'channel': ctx.channel.id}
+#         await ctx.channel.purge (limit=1)
+#         await ctx.guild.create_role (name="bday", color=Colour (0xFFFF00))
+#         await embed (ctx, 'Data saved')
+#         save (self.json)
     @commands.command (name="setup")
-    async def setup(self, ctx: commands.Context, msg_link: str):
-        self.json['account'][ctx.guild.id] = {'data': msg_link, 'channel': ctx.channel.id}
+    async def setup(self, ctx: commands.Context):
         await ctx.channel.purge (limit=1)
         await ctx.guild.create_role (name="bday", color=Colour (0xFFFF00))
-        await embed (ctx, 'Data saved')
-        save (self.json)
+        await embed (ctx, 'Role created')
 
     @tasks.loop (minutes=1)
     async def birthday_loop(self):
@@ -44,6 +51,7 @@ class BirthdayModule (commands.Cog):
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
+                os.environ['lastCheck'] = now
                 save (self.json)
             now = datetime.now ().strftime ('%b %d')
 
