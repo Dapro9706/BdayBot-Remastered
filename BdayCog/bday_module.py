@@ -6,10 +6,12 @@ from .globals import *
 from random import choice
 
 if DEBUG:
-    edit(1)
+    edit (0)
+
 
 def save(j):
     pass
+
 
 #     with open (SAVE, 'w') as f:
 #         json.dump (j, f, indent=4 if DEBUG else None)
@@ -48,9 +50,9 @@ class BirthdayModule (commands.Cog):
     async def birthday_loop(self):
         if DEBUG:
             print ('loop')
-        now = (datetime.now ()+timedelta(hours=5,minutes=30)).strftime ('%j')
+        now = (datetime.now () + timedelta (hours=5, minutes=30)).strftime ('%j')
         if DEBUG:
-            print(datetime.now (),datetime.now ()+timedelta(hours=5,minutes=30))
+            print (datetime.now (), datetime.now () + timedelta (hours=5, minutes=30))
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
