@@ -9,6 +9,8 @@ from random import choice
 def save(j):
     pass
 
+edit(1)
+
 
 #     with open (SAVE, 'w') as f:
 #         json.dump (j, f, indent=4 if DEBUG else None)
@@ -47,7 +49,8 @@ class BirthdayModule (commands.Cog):
     async def birthday_loop(self):
         if DEBUG:
             print ('loop')
-        now = datetime.now ().strftime ('%j')
+        now = (datetime.now ()+timedelta(hours=5,minutes=30)).strftime ('%j')
+        print(now)
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
