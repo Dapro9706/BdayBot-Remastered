@@ -37,7 +37,7 @@ def get():
     c = psycopg2.connect (DATABASE_URL, sslmode='require')  # sqlite3.connect(DATABASE)
 
     row = c.cursor ()
-    row.execute (f"SELECT * FROM Accounts WHERE ID = 1")
+    row.execute (f"SELECT * FROM LastCheck WHERE ID = 1")
     row = row.fetchone ()
     print(row)
     c.close ()
