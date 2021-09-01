@@ -6,6 +6,8 @@ class Bot (commands.Bot):
     def __init__(self, *args, **kwargs):
         super ().__init__ (*args, **kwargs)
         self.init_commands ()
+        self.remove_command('help')
+        self.load_extension ('cog')
 
     def init_commands(self):
         @self.event
@@ -14,5 +16,4 @@ class Bot (commands.Bot):
 
 
 bot = Bot (command_prefix="q")
-bot.load_extension ('cog')
 bot.run (os.getenv ('TOKEN'))
