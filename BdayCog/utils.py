@@ -27,8 +27,18 @@ def create_table():
 
 
 def edit(a):
-    print(f'WE HIT {a}')
     c = psycopg2.connect (DATABASE_URL, sslmode='require')  # sqlite3.connect(DATABASE)
     c.cursor ().execute (f"UPDATE LastCheck SET LC = '{a}' WHERE ID = 1")
     c.commit ()
     c.close ()
+
+
+def get():
+    c = psycopg2.connect (DATABASE_URL, sslmode='require')  # sqlite3.connect(DATABASE)
+
+    row = c.cursor ()
+    row.execute (f"SELECT * FROM Accounts WHERE ID = 1")
+    row = row.fetchone ()
+    print(row)
+    c.close ()
+    return row[1]

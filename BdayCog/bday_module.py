@@ -6,9 +6,6 @@ from .globals import *
 from discord.utils import get
 from random import choice
 
-if DEBUG:
-    edit (0)
-
 
 def save(j):
     pass
@@ -24,6 +21,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
+        self.json['lastCheck'] = get()
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
