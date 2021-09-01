@@ -39,6 +39,5 @@ def get():
     row = c.cursor ()
     row.execute (f"SELECT * FROM LastCheck WHERE ID = 1")
     row = row.fetchone ()
-    print(row)
     c.close ()
     return row[1]
