@@ -76,7 +76,7 @@ class BirthdayModule (commands.Cog):
                         print (j, now)
                     if " ".join (j.split (' ')[:-1]) in [now, now1]:
                         name = j.split (' ')[-1]
-                        print (F'BDay bOII {name} {now} {self.json["lastCheck"]}')
+                        print (F'BDay bOII {name} {now} {self.json["lastCheck"]} {(datetime.now () + timedelta (hours=5, minutes=30)).strftime ("%j")}')
                         if DEBUG:
                             print ('---------')
                             print (name," ".join (j.split (' ')[:-1]),[now, now1])
