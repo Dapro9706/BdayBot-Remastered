@@ -15,5 +15,5 @@ class Bot (commands.Bot):
             print ('Bot Online')
 
 
-bot = Bot (command_prefix="q")
+bot = Bot (command_prefix="q.")
 bot.run (os.getenv ('TOKEN'))
