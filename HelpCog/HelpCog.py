@@ -42,7 +42,7 @@ class Help (commands.Cog):
 
         # starting to build embed
         emb = discord.Embed (title='Commands and modules', color=discord.Color.blue (),
-                             description=f"Prefix: `{prefix}\n\n"
+                             description=f"Prefix: `{prefix}`\n\n"
                                          f"Listen customisation isn't done yet so `{prefix}setup` "
                                          f"just makes a new role")
 
