@@ -1,0 +1,1 @@
+from .HelpCog import Help

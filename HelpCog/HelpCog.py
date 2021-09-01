@@ -28,7 +28,7 @@ class Help (commands.Cog):
     async def help(self, ctx):
         """Shows all modules of that bot"""
 
-        prefix = 'r!'
+        prefix = 'q.'
         version = 'v1.7'
 
         # setting owner name - if you don't wanna be mentioned remove line 49-60 and adjust help text (line 88)
