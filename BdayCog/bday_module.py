@@ -66,6 +66,10 @@ class BirthdayModule (commands.Cog):
 
                 current = (await (await self.bot.fetch_channel (c_id)).fetch_message (m_id)).content.replace (
                     "```", '').replace ('py', '').split ('\n')[1:-1]
+
+                if DEBUG:
+                    print(current)
+
                 for j in current:
                     if " ".join (j.split (' ')[:-1]) == now:
                         name = j.split (' ')[-1]
