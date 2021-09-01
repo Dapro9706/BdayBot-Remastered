@@ -28,6 +28,6 @@ def create_table():
 
 def edit(a):
     c = psycopg2.connect (DATABASE_URL, sslmode='require')  # sqlite3.connect(DATABASE)
-    c.cursor ().execute (f"UPDATE Accounts SET AMOUNT = '{a}' WHERE ID = 1")
+    c.cursor ().execute (f"UPDATE LastCheck SET AMOUNT = '{a}' WHERE ID = 1")
     c.commit ()
     c.close ()
