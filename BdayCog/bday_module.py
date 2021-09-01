@@ -63,7 +63,7 @@ class BirthdayModule (commands.Cog):
 
             for i in self.json['account']:
                 current = self.json['account'][i]['data'].split ('/')[-2:]
-                guild = await self.bot.fetch_guild(int(i))
+                guild = (await self.bot.fetch_guild (int (i)))
                 role = get (guild.roles, name="bday")
                 c_id = current[0]
                 m_id = current[1]
@@ -73,8 +73,8 @@ class BirthdayModule (commands.Cog):
 
                 for j in current:
                     if DEBUG:
-                        print (j,now)
-                    if " ".join (j.split (' ')[:-1]) in [now,now1]:
+                        print (j, now)
+                    if " ".join (j.split (' ')[:-1]) in [now, now1]:
                         name = j.split (' ')[-1]
                         if DEBUG:
                             print ('---------')
