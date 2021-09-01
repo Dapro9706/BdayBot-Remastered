@@ -79,7 +79,7 @@ class BirthdayModule (commands.Cog):
                         name = j.split (' ')[-1]
                         if DEBUG:
                             print ('---------')
-                            print (name)
+                            print (name," ".join (j.split (' ')[:-1]),[now, now1])
                             print ('---------')
                         channel = await self.bot.fetch_channel (self.json['account'][i]['channel'])
                         await channel.send (f'{role.mention}')
