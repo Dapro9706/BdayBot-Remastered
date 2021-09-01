@@ -58,6 +58,7 @@ class BirthdayModule (commands.Cog):
             if not DEBUG:
                 self.json['lastCheck'] = now
                 edit (self.json['lastCheck'])
+                print('EDITED DAWG')
             now = datetime.now ().strftime ('%b %d')
             now1 = datetime.now ().strftime ('%b %-d')
 
