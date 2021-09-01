@@ -1,6 +1,6 @@
 import json
 from discord.ext import commands, tasks
-from .utils import embed, birthday_embed, Colour, edit, create_table
+from .utils import embed, birthday_embed, Colour, edit, get as g
 from datetime import datetime, timedelta
 from .globals import *
 from discord.utils import get
@@ -21,7 +21,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
-        self.json['lastCheck'] = get()
+        self.json['lastCheck'] = g()
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
