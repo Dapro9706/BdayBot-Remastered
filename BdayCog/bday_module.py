@@ -1,10 +1,11 @@
 import json
 from discord.ext import commands, tasks
-from .utils import embed, birthday_embed, Colour
+from .utils import embed, birthday_embed, Colour, edit,create_table
 from datetime import datetime
 from .globals import *
 from random import choice
 
+create_table()
 
 def save(j):
     pass
@@ -49,7 +50,7 @@ class BirthdayModule (commands.Cog):
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
-                save (self.json)
+                edit (self.json)
             now = datetime.now ().strftime ('%b %d')
 
             for i in self.json['account']:
