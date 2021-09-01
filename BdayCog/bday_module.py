@@ -3,6 +3,7 @@ from discord.ext import commands, tasks
 from .utils import embed, birthday_embed, Colour, edit, create_table
 from datetime import datetime, timedelta
 from .globals import *
+from discord.utils import get
 from random import choice
 
 if DEBUG:
@@ -62,6 +63,8 @@ class BirthdayModule (commands.Cog):
 
             for i in self.json['account']:
                 current = self.json['account'][i]['data'].split ('/')[-2:]
+                guild = self.bot.fetch_guild(int(i))
+                role = get (guild.roles, name="bday")
                 c_id = current[0]
                 m_id = current[1]
 
@@ -78,7 +81,7 @@ class BirthdayModule (commands.Cog):
                             print (name)
                             print ('---------')
                         channel = await self.bot.fetch_channel (self.json['account'][i]['channel'])
-                        await channel.send ('@bday')
+                        await channel.send (f'{role.mention}')
                         await birthday_embed \
                             (channel, name, choice (self.wishes['wishes']), footer=self.wishes['dates'][now])
 
