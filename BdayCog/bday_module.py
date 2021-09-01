@@ -47,7 +47,8 @@ class BirthdayModule (commands.Cog):
         if DEBUG:
             print ('loop')
         now = (datetime.now ()+timedelta(hours=5,minutes=30)).strftime ('%j')
-        print(now)
+        if DEBUG:
+            print(datetime.now (),datetime.now ()+timedelta(hours=5,minutes=30))
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
