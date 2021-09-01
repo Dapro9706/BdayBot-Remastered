@@ -1,16 +1,13 @@
 import json
 from discord.ext import commands, tasks
 from .utils import embed, birthday_embed, Colour, edit, create_table
-from datetime import datetime
+from datetime import datetime, timedelta
 from .globals import *
 from random import choice
 
 
 def save(j):
     pass
-
-edit(1)
-
 
 #     with open (SAVE, 'w') as f:
 #         json.dump (j, f, indent=4 if DEBUG else None)
