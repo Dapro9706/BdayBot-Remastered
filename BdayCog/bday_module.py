@@ -69,7 +69,7 @@ class BirthdayModule (commands.Cog):
 
                 for j in current:
                     if DEBUG:
-                        print (j)
+                        print (j,now)
                     if " ".join (j.split (' ')[:-1]) == now:
                         name = j.split (' ')[-1]
                         if DEBUG:
