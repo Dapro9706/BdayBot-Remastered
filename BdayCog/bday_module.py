@@ -5,6 +5,8 @@ from datetime import datetime, timedelta
 from .globals import *
 from random import choice
 
+if DEBUG:
+    edit(1)
 
 def save(j):
     pass
