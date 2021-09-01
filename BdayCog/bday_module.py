@@ -5,9 +5,6 @@ from datetime import datetime
 from .globals import *
 from random import choice
 
-create_table ()
-print('TABLE READY')
-
 
 def save(j):
     pass
@@ -54,7 +51,7 @@ class BirthdayModule (commands.Cog):
         if now != self.json['lastCheck']:
             if not DEBUG:
                 self.json['lastCheck'] = now
-                edit (self.json)
+                edit (self.json['lastCheck'])
             now = datetime.now ().strftime ('%b %d')
 
             for i in self.json['account']:
