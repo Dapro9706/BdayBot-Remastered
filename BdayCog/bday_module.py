@@ -67,12 +67,15 @@ class BirthdayModule (commands.Cog):
                 current = (await (await self.bot.fetch_channel (c_id)).fetch_message (m_id)).content.replace (
                     "```", '').replace ('py', '').split ('\n')[1:-1]
 
-                if DEBUG:
-                    print(current)
-
                 for j in current:
+                    if DEBUG:
+                        print (j)
                     if " ".join (j.split (' ')[:-1]) == now:
                         name = j.split (' ')[-1]
+                        if DEBUG:
+                            print ('---------')
+                            print (name)
+                            print ('---------')
                         channel = await self.bot.fetch_channel (self.json['account'][i]['channel'])
                         await channel.send ('@bday')
                         await birthday_embed \
