@@ -1,14 +1,18 @@
 import json
 from discord.ext import commands, tasks
-from .utils import embed, birthday_embed, Colour, edit,create_table
+from .utils import embed, birthday_embed, Colour, edit, create_table
 from datetime import datetime
 from .globals import *
 from random import choice
 
-create_table()
+create_table ()
+print('TABLE READY')
+
 
 def save(j):
     pass
+
+
 #     with open (SAVE, 'w') as f:
 #         json.dump (j, f, indent=4 if DEBUG else None)
 
@@ -29,13 +33,13 @@ class BirthdayModule (commands.Cog):
     async def ping(self, ctx):
         await ctx.send ('TEST')
 
-#     @commands.command (name="setup")
-#     async def setup(self, ctx: commands.Context, msg_link: str):
-#         self.json['account'][ctx.guild.id] = {'data': msg_link, 'channel': ctx.channel.id}
-#         await ctx.channel.purge (limit=1)
-#         await ctx.guild.create_role (name="bday", color=Colour (0xFFFF00))
-#         await embed (ctx, 'Data saved')
-#         save (self.json)
+    #     @commands.command (name="setup")
+    #     async def setup(self, ctx: commands.Context, msg_link: str):
+    #         self.json['account'][ctx.guild.id] = {'data': msg_link, 'channel': ctx.channel.id}
+    #         await ctx.channel.purge (limit=1)
+    #         await ctx.guild.create_role (name="bday", color=Colour (0xFFFF00))
+    #         await embed (ctx, 'Data saved')
+    #         save (self.json)
     @commands.command (name="setup")
     async def setup(self, ctx: commands.Context):
         await ctx.channel.purge (limit=1)

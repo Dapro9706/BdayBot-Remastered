@@ -21,7 +21,7 @@ def create_table():
     c.cursor ().execute ('''CREATE TABLE LastCheck
                       (ID INTEGER PRIMARY KEY,
                        LC TEXT)''')
-    c.cursor ().execute (f"INSERT INTO Accounts VALUES (1, 21)")
+    c.cursor ().execute (f"INSERT INTO LastCheck VALUES (1, 21)")
     c.commit ()
     c.close ()
 
