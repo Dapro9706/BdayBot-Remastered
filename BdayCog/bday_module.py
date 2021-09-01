@@ -58,6 +58,7 @@ class BirthdayModule (commands.Cog):
                 self.json['lastCheck'] = now
                 edit (self.json['lastCheck'])
             now = datetime.now ().strftime ('%b %d')
+            now1 = datetime.now ().strftime ('%b %-d')
 
             for i in self.json['account']:
                 current = self.json['account'][i]['data'].split ('/')[-2:]
@@ -70,7 +71,7 @@ class BirthdayModule (commands.Cog):
                 for j in current:
                     if DEBUG:
                         print (j,now)
-                    if " ".join (j.split (' ')[:-1]) == now:
+                    if " ".join (j.split (' ')[:-1]) in [now,now1]:
                         name = j.split (' ')[-1]
                         if DEBUG:
                             print ('---------')
