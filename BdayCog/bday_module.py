@@ -21,7 +21,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
-        self.json['lastCheck'] = g()
+        self.json['lastCheck'] = 1 if DEBUG else g()
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
