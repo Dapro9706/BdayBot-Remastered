@@ -1,4 +1,4 @@
 from BdayCog.utils import edit
 
-
-edit(0)
+edit (0)
+print('DEBUG')
