@@ -21,7 +21,7 @@ class BirthdayModule (commands.Cog):
 
         with open (SAVE, 'r') as f:
             self.json = dict (json.load (f))
-        self.json['lastCheck'] = 1 if DEBUG else g()
+        self.json['lastCheck'] = 1 if DEBUG else g ()
 
         with open (WISHES, 'r') as f:
             self.wishes = dict (json.load (f))
@@ -49,7 +49,7 @@ class BirthdayModule (commands.Cog):
     async def birthday_loop(self):
         if DEBUG:
             print ('loop')
-        now = (datetime.now () + timedelta (hours=5, minutes=30)).strftime ('%j')
+        now = (datetime.now () + timedelta (days=1, hours=5, minutes=30)).strftime ('%j')
         if DEBUG:
             print (datetime.now (), datetime.now () + timedelta (hours=5, minutes=30))
         if now != self.json['lastCheck']:
@@ -76,7 +76,7 @@ class BirthdayModule (commands.Cog):
                         name = j.split (' ')[-1]
                         if DEBUG:
                             print ('---------')
-                            print (name," ".join (j.split (' ')[:-1]),[now, now1])
+                            print (name, " ".join (j.split (' ')[:-1]), [now, now1])
                             print ('---------')
                         channel = await self.bot.fetch_channel (self.json['account'][i]['channel'])
                         await channel.send (f'{role.mention}')
