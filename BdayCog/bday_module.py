@@ -49,7 +49,7 @@ class BirthdayModule (commands.Cog):
     async def birthday_loop(self):
         if DEBUG:
             print ('loop')
-        now = (datetime.now () + timedelta (days=1, hours=5, minutes=30)).strftime ('%j')
+        now = (datetime.now () + timedelta (hours=5, minutes=31)).strftime ('%j')
         if DEBUG:
             print (datetime.now (), datetime.now () + timedelta (hours=5, minutes=30))
         if now != self.json['lastCheck']:
